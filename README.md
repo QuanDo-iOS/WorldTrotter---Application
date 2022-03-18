@@ -1,1 +1,1 @@
-# WorldTrotter
+# WorldTrotter - Application
