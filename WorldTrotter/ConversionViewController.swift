@@ -16,7 +16,8 @@ class ConversionViewController : UIViewController ,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ItextField.placeholder = "value"
+        ItextField.textAlignment = .center
         updateCelsiusLabel()
     }
     
@@ -24,10 +25,14 @@ class ConversionViewController : UIViewController ,UITextFieldDelegate {
         if let text = ItextField.text , let value = Double(text) {
             fahrenheitValue = Measurement(value: value, unit: .fahrenheit)
         } else {
+            if (ItextField.text == "") {
+                ItextField.placeholder = "value"
+            }
             fahrenheitValue = nil
         }
     }
     // dismisskeyboard
+    
     
     var fahrenheitValue : Measurement<UnitTemperature>? {
         didSet {
