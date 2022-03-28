@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+    
 
 class MapKitViewController: UIViewController {
 
@@ -21,11 +22,38 @@ class MapKitViewController: UIViewController {
         // Set it as the view of this view controller
         view = mapView
         
+        
+        // set segment control with 3 item and initial attribute
         let segmentedControl = UISegmentedControl(items: ["Standard" , "Hybrid" , "Satellite"])
         segmentedControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.addTarget(self, action:  #selector(mapTypeChanged), for: .valueChanged)
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        // add segment control to view
         view.addSubview(segmentedControl)
+        
+        // auto layout for segment control
+        let topConstraint = segmentedControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8)
+        let margins = view.layoutMarginsGuide
+        let leadingConstraint = segmentedControl.leadingAnchor.constraint(equalTo: margins.leadingAnchor)
+        let trailingConstraint = segmentedControl.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
+        
+        topConstraint.isActive = true
+        leadingConstraint.isActive = true
+        trailingConstraint.isActive = true
+    }
+    
+    @objc func mapTypeChanged(_ segControl: UISegmentedControl)-> Void{
+        switch segControl.selectedSegmentIndex {
+        case 0:
+            mapView.mapType = .standard
+        case 1:
+            mapView.mapType = .hybrid
+        case 2:
+            mapView.mapType = .satellite
+        default:
+            break
+        }
     }
     
 //    override func viewDidLoad() {
