@@ -51,6 +51,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees Fahrenheit is really" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="It3-0y-rEB">
                                 <rect key="frame" x="57" y="182" width="300" height="86"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="86" id="vFO-6E-NJW"/>
                                     <constraint firstAttribute="width" constant="300" id="vem-Qz-8um"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
